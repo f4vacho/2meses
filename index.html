@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .heart {
+            font-size: 36px;
+            color: red;
+            animation: pulse 1s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .floating-hearts {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+        }
+
+        .floating-heart {
+            font-size: 24px;
+            color: red;
+            position: absolute;
+            animation: float 4s ease-out;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); opacity: 1; }
+            100% { transform: translate(0, -100px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message">
+            <p>Toque no coração</p>
+            <div class="heart" id="heart" onclick="showLoveMessage()">❤</div>
+        </div>
+    </div>
+
+    <div class="hidden-message" id="love-message" style="text-align: left; display: none;">
+        <p>Minha Querida Thata,</p>
+        <p>Hoje celebramos dois meses de namoro, e é com imensa gratidão que expresso o quão abençoado eu me sinto por tê-la ao meu lado. Sua gentileza preenche cada canto do meu coração, e você enxerga o meu melhor, iluminando minha vida de uma forma que eu jamais poderia imaginar antes de conhecê-la.</p>
+        <p>Às vezes, palavras se mostram insuficientes para expressar o quanto eu amo você e o quanto sua presença me faz feliz. Por esse motivo, decidi preparar uma surpresa especial:</p>
+        <p>Seu nome, Thaís, carrega um significado extraordinário. Ele é sinônimo de "aquela que é contemplada com admiração" e "aquela que é apreciada por sua formosura". Este nome reflete de forma impecável a pessoa incrível que você é.</p>
+        <p>Assim como a profundidade do significado de seu nome, você é verdadeiramente admirável e bela. Sua beleza transcende o exterior e se manifesta em sua bondade, amor e carinho, e você é a razão pela qual minha vida fez tanto sentido, mesmo tendo todos os motivos para não permanecer aqui, você resolveu ficar e virou a solução de todos os meus problemas ❤❤❤.</p>
+        <p>Com todo o meu amor,</p>
+        <p>"ViniVini"</p>
+    </div>
+
+    <div class="interactive-buttons">
+        <button id="btn1" onclick="showMessage(1)">Frases de músicas que me lembram você</button>
+        <button id="btn2" onclick="showMessage(2)">Motivos pelo qual você me conquistou</button>
+        <button id="btn3" onclick="showMessage(3)">Coisas que admiro em você</button>
+    </div>
+
+    <!-- Mensagens ocultas para cada botão -->
+    <div class="hidden-message" id="hidden-message-1" style="text-align: left; display: none;">
+        <p>Partes de músicas que me lembram você:</p>
+        <blockquote>"Segura-me entre os dedos
+        Enxerga em mim teus desejos, e a paz
+        Tira de mim esse medo de me entregar
+        Faça de mim teu segredo e me guarda"<br>Me leva - Delacruz</blockquote>
+    </div>
+
+    <div class="hidden-message" id="hidden-message-2" style="text-align: left; display: none;">
+        <p>Motivos pelo qual você me conquistou:</p>
+        <ul>
+            <li>Sua empatia: A capacidade de se colocar no lugar dos outros e demonstrar compreensão e apoio.</li>
+            <li>Sua honestidade: A sinceridade e transparência em suas palavras e ações.</li>
+            <li>Sua resiliência: A capacidade de superar desafios e adversidades com força e determinação.</li>
+        </ul>
+    </div>
+
+    <div class="hidden-message" id="hidden-message-3" style="text-align: left; display: none;">
+        <p>Coisas que admiro em você:</p>
+        <ul>
+            <li>Seu senso de humor: Sua capacidade de fazer a outra pessoa rir e trazer alegria para sua vida.</li>
+            <li>Sua gentileza: A maneira como você trata os outros com bondade e respeito.</li>
+            <li>Sua empatia: Sua capacidade de entender e se conectar com os sentimentos e experiências da outra pessoa.</li>
+        </ul>
+    </div>
+
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <script>
+        function showLoveMessage() {
+            document.getElementById('heart').style.display = 'none';
+            document.getElementById('love-message').style.display = 'block';
+
+            // Create floating hearts
+            var floatingHearts = document.getElementById('floating-hearts');
+            for (var i = 0; i < 10; i++) {
+                var heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '❤';
+                var delay = Math.random() * 2 + 1;
+                heart.style.animation = `float 4s ease-out ${delay}s`;
+                floatingHearts.appendChild(heart);
+            }
+        }
+
+        function showMessage(btnNumber) {
+            document.getElementById('btn' + btnNumber).style.display = 'none';
+            document.getElementById('hidden-message-' + btnNumber).style.display = 'block';
+        }
+    </script>
+</body>
+</html>

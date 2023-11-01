@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0e6f4;
+    text-align: center;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.message {
+    font-size: 24px;
+}
+
+.heart {
+    cursor: pointer;
+}
+
+.hidden-message {
+    display: none;
+    background-color: #ffc0cb;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.interactive-buttons {
+    margin-top: 20px;
+}
+
+button {
+    font-size: 18px;
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #a569bd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #8e44ad;
+}
